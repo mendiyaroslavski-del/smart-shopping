@@ -8,68 +8,68 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;overflow:hidden;font-family:'Segoe UI',Arial,sans-serif;direction:rtl;background:#f0f4f8;}
-
-/* ── LAYOUT SHELL ── */
 #app{display:flex;flex-direction:column;height:100vh;height:100dvh;}
 
-/* ── HEADER ── */
+/* HEADER */
 .hdr{background:linear-gradient(135deg,#1a472a,#2d6a4f);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
 .hdr-l{display:flex;align-items:center;gap:8px;}
-.hdr-logo{font-size:26px;line-height:1;}
+.hdr-logo{font-size:26px;}
 .hdr-title{font-weight:800;font-size:16px;}
 .hdr-sub{font-size:10px;opacity:0.7;}
-.hdr-badge{background:rgba(255,255,255,0.18);border-radius:8px;padding:5px 10px;text-align:center;font-size:11px;display:none;line-height:1.4;}
+.hdr-badge{background:rgba(255,255,255,0.18);border-radius:8px;padding:5px 10px;text-align:center;font-size:11px;display:none;line-height:1.5;}
 .hdr-badge b{display:block;font-size:14px;font-weight:800;}
 
-/* ── TABS ── */
+/* TABS */
 .tabs{display:flex;background:#fff;border-bottom:2px solid #e9ecef;flex-shrink:0;}
 .tab{flex:1;padding:10px 0;border:none;background:none;cursor:pointer;font-size:13px;color:#6c757d;font-weight:500;font-family:inherit;}
 .tab.active{color:#1a472a;border-bottom:3px solid #2d6a4f;margin-bottom:-2px;font-weight:700;}
 
-/* ── CONTENT ── */
-.pane{display:none;flex:1;overflow-y:auto;overflow-x:hidden;padding:10px 12px;flex-direction:column;gap:8px;}
+/* PANES */
+.pane{display:none;flex:1;overflow-y:auto;padding:10px 12px;flex-direction:column;gap:8px;}
 .pane.active{display:flex;}
 
-/* ── ADD BOX ── */
+/* ADD BOX */
 .add-box{background:#fff;border-radius:12px;padding:10px 12px;box-shadow:0 2px 6px rgba(0,0,0,0.07);flex-shrink:0;}
 .add-row{display:flex;gap:6px;align-items:center;}
 .add-input{flex:1;border:2px solid #dee2e6;border-radius:10px;padding:9px 11px;font-size:15px;outline:none;font-family:inherit;min-width:0;}
 .add-input:focus{border-color:#2d6a4f;}
 .qty-inp{width:46px;border:2px solid #dee2e6;border-radius:10px;padding:9px 4px;font-size:15px;text-align:center;outline:none;font-family:inherit;}
-.btn-scan{background:#1565c0;color:#fff;border:none;border-radius:10px;padding:9px 12px;font-size:19px;cursor:pointer;flex-shrink:0;}
-.btn-add{background:#2d6a4f;color:#fff;border:none;border-radius:10px;padding:9px 14px;font-size:20px;font-weight:700;cursor:pointer;flex-shrink:0;}
+.btn-scan{background:#1565c0;color:#fff;border:none;border-radius:10px;padding:9px 12px;font-size:19px;cursor:pointer;}
+.btn-add{background:#2d6a4f;color:#fff;border:none;border-radius:10px;padding:9px 14px;font-size:20px;font-weight:700;cursor:pointer;}
 .suggs{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;}
 .sugg{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:16px;padding:3px 11px;font-size:12px;cursor:pointer;font-family:inherit;}
 
-/* ── MISSED ALERT ── */
+/* MISSED */
 .alert{background:#fff8e1;border:1px solid #ffc107;border-radius:10px;padding:9px 12px;flex-shrink:0;display:none;}
 .alert-t{font-weight:700;color:#856404;font-size:13px;margin-bottom:5px;}
 .alert-chips{display:flex;flex-wrap:wrap;gap:5px;}
 .chip{background:#ffc107;border:none;border-radius:14px;padding:3px 10px;font-size:12px;cursor:pointer;font-weight:600;font-family:inherit;}
 
-/* ── ITEM LIST ── */
-.items-wrap{flex:1;display:flex;flex-direction:column;gap:6px;overflow-y:auto;}
-.empty{text-align:center;color:#adb5bd;padding:30px 0;font-size:14px;flex:1;display:flex;align-items:center;justify-content:center;}
-.item{background:#fff;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
-.item.done{opacity:0.45;}
+/* ITEMS */
+.items-wrap{flex:1;display:flex;flex-direction:column;gap:6px;}
+.empty{text-align:center;color:#adb5bd;padding:30px 0;font-size:14px;flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;}
+.item{background:#fff;border-radius:10px;padding:9px 12px;display:flex;align-items:center;gap:9px;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+.item.done{opacity:0.4;}
 .chk{border:none;background:none;font-size:19px;cursor:pointer;padding:0;flex-shrink:0;}
+.item-img{width:44px;height:44px;border-radius:8px;object-fit:cover;flex-shrink:0;background:#f0f4f8;}
+.item-img-ph{width:44px;height:44px;border-radius:8px;background:#f0f4f8;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
 .item-info{flex:1;min-width:0;}
 .item-name{font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.item-meta{display:flex;gap:6px;align-items:center;margin-top:1px;}
-.item-cat{font-size:11px;color:#6c757d;}
+.item-meta{display:flex;gap:6px;align-items:center;margin-top:2px;flex-wrap:wrap;}
+.item-brand{font-size:11px;color:#6c757d;}
 .item-price{font-size:11px;color:#2d6a4f;font-weight:600;}
 .item-r{display:flex;align-items:center;gap:4px;flex-shrink:0;}
 .qty-tag{background:#e9ecef;border-radius:7px;padding:2px 7px;font-size:12px;font-weight:700;}
 .ico{border:none;background:none;cursor:pointer;font-size:17px;padding:1px;}
 
-/* ── FINALIZE ── */
+/* FINALIZE */
 .finalize{background:#fff;border-radius:12px;padding:11px 12px;box-shadow:0 2px 6px rgba(0,0,0,0.08);flex-shrink:0;display:none;}
 .fin-title{font-weight:700;font-size:13px;margin-bottom:8px;color:#1a472a;}
 .chain-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px;}
-.chn-btn{border:2px solid #dee2e6;background:#f8f9fa;border-radius:16px;padding:5px 12px;cursor:pointer;font-size:12px;font-weight:600;font-family:inherit;transition:all .15s;}
+.chn-btn{border:2px solid #dee2e6;background:#f8f9fa;border-radius:16px;padding:5px 12px;cursor:pointer;font-size:12px;font-weight:600;font-family:inherit;}
 .rec-btn{width:100%;background:#2d6a4f;color:#fff;border:none;border-radius:9px;padding:11px;font-size:14px;cursor:pointer;font-weight:700;font-family:inherit;display:none;}
 
-/* ── COMPARE ── */
+/* COMPARE */
 .cmp-hdr{font-weight:700;font-size:15px;color:#1a472a;text-align:center;flex-shrink:0;}
 .chain-cards{display:flex;flex-direction:column;gap:7px;flex-shrink:0;}
 .ccard{background:#fff;border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
@@ -80,40 +80,55 @@ html,body{height:100%;overflow:hidden;font-family:'Segoe UI',Arial,sans-serif;di
 .best-tag{background:#2d6a4f;color:#fff;border-radius:14px;padding:2px 9px;font-size:11px;}
 .cdiff{color:#dc3545;font-weight:600;font-size:12px;}
 .bk-title{font-weight:700;font-size:13px;color:#495057;flex-shrink:0;}
-.bk-table{background:#fff;border-radius:10px;overflow:auto;box-shadow:0 1px 3px rgba(0,0,0,0.06);flex-shrink:0;}
+.bk-table{background:#fff;border-radius:10px;overflow:auto;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
 .t-hdr,.t-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;padding:8px 10px;gap:3px;font-size:11px;}
-.t-hdr{background:#f8f9fa;font-weight:700;position:sticky;top:0;}
+.t-hdr{background:#f8f9fa;font-weight:700;}
 .t-row{border-top:1px solid #f0f0f0;}
 .tp{text-align:center;}.tb{color:#2d6a4f;font-weight:700;}
 
-/* ── STATS ── */
+/* STATS */
 .stat-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex-shrink:0;}
 .scard{background:#fff;border-radius:12px;padding:14px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.07);}
 .slabel{font-size:12px;color:#6c757d;margin-bottom:4px;}
 .sval{font-weight:800;font-size:22px;color:#1a472a;}
 .chart-t{font-weight:700;font-size:13px;color:#495057;flex-shrink:0;}
-.bar-chart{display:flex;gap:6px;align-items:flex-end;background:#fff;border-radius:12px;padding:12px 10px 8px;box-shadow:0 1px 3px rgba(0,0,0,0.06);height:120px;overflow-x:auto;flex-shrink:0;}
+.bar-chart{display:flex;gap:6px;align-items:flex-end;background:#fff;border-radius:12px;padding:12px 10px 8px;box-shadow:0 1px 3px rgba(0,0,0,0.06);height:120px;flex-shrink:0;}
 .bw{display:flex;flex-direction:column;align-items:center;flex:1;min-width:34px;height:100%;justify-content:flex-end;}
 .bl{font-size:9px;color:#6c757d;margin-bottom:2px;white-space:nowrap;}
 .bt{width:20px;flex:1;display:flex;align-items:flex-end;background:#f0f4f8;border-radius:5px;overflow:hidden;}
 .b{width:100%;border-radius:5px;}
 .bk{font-size:10px;color:#6c757d;margin-top:3px;}
-.clr-btn{background:#f8f9fa;border:1px solid #dee2e6;border-radius:9px;padding:9px;cursor:pointer;color:#dc3545;font-weight:600;font-family:inherit;font-size:13px;flex-shrink:0;}
+.clr-btn{background:#f8f9fa;border:1px solid #dee2e6;border-radius:9px;padding:9px;cursor:pointer;color:#dc3545;font-weight:600;font-family:inherit;font-size:13px;}
 
-/* ── SCANNER MODAL ── */
-.scan-modal{position:fixed;inset:0;background:rgba(0,0,0,0.88);display:none;align-items:flex-start;justify-content:center;z-index:200;padding:20px 12px;}
+/* SCANNER MODAL */
+.scan-modal{position:fixed;inset:0;background:rgba(0,0,0,0.88);display:none;align-items:flex-start;justify-content:center;z-index:200;padding:16px 12px;}
 .scan-box{background:#fff;border-radius:18px;padding:16px;width:100%;max-width:380px;}
 .scan-title{font-weight:800;font-size:16px;color:#1a472a;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;}
 #reader{width:100%;border-radius:10px;overflow:hidden;}
-.scan-status{margin-top:10px;padding:9px 12px;border-radius:9px;font-size:13px;text-align:center;background:#f8f9fa;color:#495057;}
+.scan-status{margin-top:10px;padding:9px 12px;border-radius:9px;font-size:13px;text-align:center;background:#f8f9fa;color:#495057;min-height:38px;display:flex;align-items:center;justify-content:center;}
 .scan-status.found{background:#e8f5e9;color:#1a472a;font-weight:700;}
 .scan-status.bad{background:#fff3cd;color:#856404;}
+.scan-status.loading{background:#e3f2fd;color:#1565c0;}
+
+/* PRODUCT PREVIEW CARD */
+.prod-preview{margin-top:10px;background:#f8f9fa;border-radius:12px;padding:12px;display:none;align-items:center;gap:12px;}
+.prod-preview.show{display:flex;}
+.prev-img{width:64px;height:64px;border-radius:10px;object-fit:cover;background:#e9ecef;flex-shrink:0;}
+.prev-img-ph{width:64px;height:64px;border-radius:10px;background:#e9ecef;display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0;}
+.prev-info{flex:1;min-width:0;}
+.prev-name{font-weight:700;font-size:14px;line-height:1.3;}
+.prev-brand{font-size:12px;color:#6c757d;margin-top:2px;}
+.prev-bc{font-size:11px;color:#adb5bd;margin-top:2px;}
+.prev-actions{display:flex;gap:6px;margin-top:8px;}
+.btn-add-prod{background:#2d6a4f;color:#fff;border:none;border-radius:9px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;flex:1;}
+.btn-skip{background:#f8f9fa;border:1px solid #dee2e6;border-radius:9px;padding:8px 12px;font-size:13px;cursor:pointer;font-family:inherit;}
+
 .scan-manual{margin-top:8px;display:flex;gap:6px;}
 .scan-manual input{flex:1;border:2px solid #dee2e6;border-radius:9px;padding:8px 11px;font-size:14px;font-family:inherit;outline:none;}
 .scan-manual button{background:#1565c0;color:#fff;border:none;border-radius:9px;padding:8px 14px;cursor:pointer;font-family:inherit;font-weight:700;font-size:13px;}
 .x-btn{background:none;border:none;font-size:22px;cursor:pointer;color:#6c757d;line-height:1;}
 
-/* ── PRICE MODAL ── */
+/* PRICE MODAL */
 .pm-bg{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:none;align-items:center;justify-content:center;z-index:100;}
 .pm-box{background:#fff;border-radius:16px;padding:20px;width:88%;max-width:320px;}
 .pm-title{font-weight:800;font-size:17px;margin-bottom:12px;color:#1a472a;}
@@ -127,7 +142,6 @@ html,body{height:100%;overflow:hidden;font-family:'Segoe UI',Arial,sans-serif;di
 <body>
 <div id="app">
 
-  <!-- HEADER -->
   <div class="hdr">
     <div class="hdr-l">
       <span class="hdr-logo">🛒</span>
@@ -143,14 +157,13 @@ html,body{height:100%;overflow:hidden;font-family:'Segoe UI',Arial,sans-serif;di
     </div>
   </div>
 
-  <!-- TABS -->
   <div class="tabs">
     <button class="tab active" onclick="showTab('list')">📋 רשימה</button>
     <button class="tab" onclick="showTab('compare')">💰 השוואה</button>
     <button class="tab" onclick="showTab('stats')">📊 הוצאות</button>
   </div>
 
-  <!-- LIST PANE -->
+  <!-- LIST -->
   <div id="pane-list" class="pane active">
     <div id="missed" class="alert">
       <div class="alert-t">⚠️ שכחת להוסיף?</div>
@@ -167,18 +180,18 @@ html,body{height:100%;overflow:hidden;font-family:'Segoe UI',Arial,sans-serif;di
     </div>
     <div id="item-list" class="items-wrap"></div>
     <div id="finalize" class="finalize">
-      <div class="fin-title">✅ סיימת? בחר רשת לרישום:</div>
+      <div class="fin-title">✅ סיימת? בחר רשת:</div>
       <div class="chain-btns" id="chn-btns"></div>
       <button id="rec-btn" class="rec-btn" onclick="recPurchase()">רשום קנייה</button>
     </div>
   </div>
 
-  <!-- COMPARE PANE -->
+  <!-- COMPARE -->
   <div id="pane-compare" class="pane">
     <div id="cmp-content" style="display:contents"></div>
   </div>
 
-  <!-- STATS PANE -->
+  <!-- STATS -->
   <div id="pane-stats" class="pane">
     <div class="stat-cards">
       <div class="scard"><div class="slabel">השבוע</div><div class="sval" id="sw">₪0</div></div>
@@ -186,11 +199,11 @@ html,body{height:100%;overflow:hidden;font-family:'Segoe UI',Arial,sans-serif;di
     </div>
     <div id="wc"></div>
     <div id="mc"></div>
-    <div id="no-stats" class="empty" style="display:none">עדיין אין נתוני קניות</div>
+    <div id="no-stats" class="empty" style="display:none"><span>📊</span><span>עדיין אין נתוני קניות</span></div>
     <button class="clr-btn" onclick="clrHistory()">🗑️ נקה היסטוריה</button>
   </div>
 
-</div><!-- /app -->
+</div>
 
 <!-- SCANNER MODAL -->
 <div id="scan-modal" class="scan-modal">
@@ -201,6 +214,21 @@ html,body{height:100%;overflow:hidden;font-family:'Segoe UI',Arial,sans-serif;di
     </div>
     <div id="reader"></div>
     <div id="scan-status" class="scan-status">מכוון את המצלמה לברקוד...</div>
+
+    <!-- תצוגת מוצר שנסרק -->
+    <div id="prod-preview" class="prod-preview">
+      <div id="prev-img-wrap"></div>
+      <div class="prev-info">
+        <div class="prev-name" id="prev-name"></div>
+        <div class="prev-brand" id="prev-brand"></div>
+        <div class="prev-bc" id="prev-bc"></div>
+        <div class="prev-actions">
+          <button class="btn-add-prod" onclick="confirmAdd()">✅ הוסף לרשימה</button>
+          <button class="btn-skip" onclick="resetScan()">↩ סרוק שוב</button>
+        </div>
+      </div>
+    </div>
+
     <div class="scan-manual">
       <input id="mbc" placeholder="ברקוד ידני..." type="number">
       <button onclick="manualLookup()">חפש</button>
@@ -243,18 +271,18 @@ const PDB={
   "גזר 1kg":{"שופרסל":5.9,"רמי לוי":4.5,"ויקטורי":5.2,"יינות ביתן":4.9}
 };
 const CAT={"חלב 3%":"🥛","לחם אחיד":"🍞","ביצים 12":"🥚","עוף שלם":"🍗","גבינה צהובה":"🧀","שמן זית":"🫒","פסטה 500g":"🍝","אורז 1kg":"🌾","עגבניות 1kg":"🍅","מלפפונים 1kg":"🥒","תפוחים 1kg":"🍎","בננות 1kg":"🍌","יוגורט 200g":"🥛","חמאה 200g":"🧈","מיץ תפוזים":"🧃","קפה טחון":"☕","סוכר 1kg":"🌾","קמח 1kg":"🌾","טונה שימורים":"🐟","גזר 1kg":"🥕"};
-const BC={"7290000066820":"חלב 3%","7290000043020":"לחם אחיד","7290107400015":"ביצים 12","7290108081779":"עוף שלם","7290000083704":"גבינה צהובה","7290000054940":"שמן זית","8076808001869":"פסטה 500g","7290000006529":"אורז 1kg","7290108081038":"יוגורט 200g","7290000006567":"חמאה 200g","7290006543123":"מיץ תפוזים","7290005901071":"קפה טחון","7290000049596":"סוכר 1kg","7290000037258":"קמח 1kg","7290000019954":"טונה שימורים"};
 const COMMON=Object.keys(PDB);
 const fmt=n=>"₪"+Number(n).toFixed(2);
-const SK="sq_v4";
+const SK="sq_v5";
 function wk(){const d=new Date(),s=new Date(d.getFullYear(),0,1);return d.getFullYear()+"-W"+Math.ceil(((d-s)/86400000+s.getDay()+1)/7);}
 function mk(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");}
 
 let S={items:[],purchases:{}};
 try{const x=JSON.parse(localStorage.getItem(SK));if(x)S=x;}catch{}
-let selC=null,scanner=null,scanOpen=false,lastScan="";
+let selC=null,scanner=null,scanOpen=false,lastScan="",pendingProduct=null;
 function persist(){try{localStorage.setItem(SK,JSON.stringify(S));}catch{}}
 
+// ── TABS ──────────────────────────────────────────────────────────────────
 function showTab(t){
   ["list","compare","stats"].forEach((x,i)=>{
     document.getElementById("pane-"+x).classList.toggle("active",x===t);
@@ -264,6 +292,7 @@ function showTab(t){
   if(t==="stats")renderStats();
 }
 
+// ── INPUT ─────────────────────────────────────────────────────────────────
 function onInp(){
   const v=document.getElementById("inp").value;
   const b=document.getElementById("suggs");
@@ -271,11 +300,12 @@ function onInp(){
   b.innerHTML=COMMON.filter(i=>i.includes(v)).slice(0,5).map(x=>`<button class="sugg" onclick="qa('${x}')">${x}</button>`).join("");
 }
 function qa(n){document.getElementById("inp").value=n;document.getElementById("suggs").innerHTML="";add();}
-function add(name,barcode){
+
+function add(name,barcode,img,brand){
   const n=(name||document.getElementById("inp").value).trim();
   const q=parseInt(document.getElementById("qty").value)||1;
   if(!n||S.items.find(i=>i.name===n))return;
-  S.items.push({id:Date.now(),name:n,qty:q,done:false,bc:barcode||null});
+  S.items.push({id:Date.now(),name:n,qty:q,done:false,bc:barcode||null,img:img||null,brand:brand||null});
   persist();
   document.getElementById("inp").value="";
   document.getElementById("qty").value=1;
@@ -285,43 +315,106 @@ function add(name,barcode){
 function tog(id){const it=S.items.find(i=>i.id===id);if(it)it.done=!it.done;persist();renderList();}
 function del(id){S.items=S.items.filter(i=>i.id!==id);persist();renderList();badge();}
 
-/* SCANNER */
+// ── OPEN FOOD FACTS LOOKUP ────────────────────────────────────────────────
+async function fetchProduct(code){
+  const st=document.getElementById("scan-status");
+  st.textContent="⏳ מחפש מוצר...";
+  st.className="scan-status loading";
+  try{
+    const r=await fetch(`https://world.openfoodfacts.org/api/v0/product/${code}.json`);
+    const d=await r.json();
+    if(d.status===1){
+      const p=d.product;
+      const name=p.product_name_he||p.product_name||p.abbreviated_product_name||"";
+      const brand=p.brands||"";
+      const img=p.image_front_small_url||p.image_url||"";
+      return{name,brand,img,code};
+    }
+  }catch(e){}
+  return null;
+}
+
+function showProductPreview(prod){
+  pendingProduct=prod;
+  const preview=document.getElementById("prod-preview");
+  document.getElementById("prev-name").textContent=prod.name||"מוצר לא מזוהה";
+  document.getElementById("prev-brand").textContent=prod.brand||"";
+  document.getElementById("prev-bc").textContent="ברקוד: "+prod.code;
+  const imgWrap=document.getElementById("prev-img-wrap");
+  if(prod.img){
+    imgWrap.innerHTML=`<img class="prev-img" src="${prod.img}" onerror="this.parentNode.innerHTML='<div class=\\'prev-img-ph\\'>🛍️</div>'">`;
+  }else{
+    imgWrap.innerHTML=`<div class="prev-img-ph">🛍️</div>`;
+  }
+  preview.classList.add("show");
+  const st=document.getElementById("scan-status");
+  st.textContent=prod.name?"✅ מוצר נמצא!":"❓ מוצר לא במאגר";
+  st.className=prod.name?"scan-status found":"scan-status bad";
+}
+
+function confirmAdd(){
+  if(!pendingProduct)return;
+  let name=pendingProduct.name;
+  if(!name){
+    name=prompt("שם המוצר (ברקוד: "+pendingProduct.code+"):");
+    if(!name||!name.trim())return;
+    name=name.trim();
+  }
+  closeScan();
+  add(name,pendingProduct.code,pendingProduct.img,pendingProduct.brand);
+}
+
+function resetScan(){
+  pendingProduct=null;
+  document.getElementById("prod-preview").classList.remove("show");
+  document.getElementById("scan-status").textContent="מכוון את המצלמה לברקוד...";
+  document.getElementById("scan-status").className="scan-status";
+  lastScan="";
+}
+
+// ── SCANNER ───────────────────────────────────────────────────────────────
 function openScan(){
   if(scanOpen)return;
   document.getElementById("scan-modal").style.display="flex";
-  document.getElementById("scan-status").textContent="מכוון את המצלמה לברקוד...";
-  document.getElementById("scan-status").className="scan-status";
-  document.getElementById("mbc").value="";
-  lastScan="";scanOpen=true;
+  resetScan();
+  scanOpen=true;
   scanner=new Html5Qrcode("reader");
-  scanner.start({facingMode:"environment"},{fps:10,qrbox:{width:240,height:100}},
-    txt=>{if(txt===lastScan)return;lastScan=txt;lookup(txt);},
+  scanner.start(
+    {facingMode:"environment"},
+    {fps:10,qrbox:{width:250,height:100}},
+    async code=>{
+      if(code===lastScan)return;
+      lastScan=code;
+      // עצור סריקה בזמן חיפוש
+      try{await scanner.pause();}catch{}
+      const prod=await fetchProduct(code);
+      showProductPreview(prod||{name:"",brand:"",img:"",code});
+    },
     ()=>{}
   ).catch(()=>{
     document.getElementById("scan-status").textContent="⚠️ אין גישה למצלמה — הזן ברקוד ידנית";
     document.getElementById("scan-status").className="scan-status bad";
   });
 }
-function lookup(code){
-  const st=document.getElementById("scan-status");
-  const nm=BC[code];
-  if(nm){st.textContent="✅ "+nm+" — נוסף!";st.className="scan-status found";closeScan();add(nm,code);}
-  else{
-    st.textContent="🔍 ברקוד: "+code+" — לא מזוהה";st.className="scan-status bad";
-    setTimeout(()=>{
-      const nm2=prompt("מוצר לא מזוהה ("+code+")\nהזן שם:");
-      if(nm2&&nm2.trim()){BC[code]=nm2.trim();closeScan();add(nm2.trim(),code);}
-    },200);
-  }
+
+async function manualLookup(){
+  const c=document.getElementById("mbc").value.trim();
+  if(!c)return;
+  lastScan=c;
+  const prod=await fetchProduct(c);
+  showProductPreview(prod||{name:"",brand:"",img:"",code:c});
 }
-function manualLookup(){const c=document.getElementById("mbc").value.trim();if(c)lookup(c);}
+
 function closeScan(){
-  if(!scanOpen)return;scanOpen=false;
+  if(!scanOpen)return;
+  scanOpen=false;
+  pendingProduct=null;
   document.getElementById("scan-modal").style.display="none";
+  document.getElementById("prod-preview").classList.remove("show");
   if(scanner){scanner.stop().catch(()=>{});scanner=null;}
 }
 
-/* PRICE MODAL */
+// ── PRICE MODAL ───────────────────────────────────────────────────────────
 function openPm(name){
   const p=PDB[name];if(!p)return;
   const mn=Math.min(...Object.values(p));
@@ -331,7 +424,7 @@ function openPm(name){
 }
 function closePm(){document.getElementById("pm").style.display="none";}
 
-/* CHAIN SELECT */
+// ── CHAIN ─────────────────────────────────────────────────────────────────
 function selChain(c){
   selC=c;
   document.querySelectorAll(".chn-btn").forEach(b=>{const s=b.dataset.c===c;b.style.background=s?CC[c]:"";b.style.color=s?"#fff":"";b.style.borderColor=s?CC[c]:"#dee2e6";});
@@ -352,7 +445,7 @@ function recPurchase(){
 }
 function clrHistory(){if(!confirm("למחוק הכל?"))return;S.purchases={};persist();renderStats();}
 
-/* BADGE */
+// ── BADGE ─────────────────────────────────────────────────────────────────
 function badge(){
   const totals=CHAINS.map(c=>({c,t:S.items.reduce((s,it)=>{const p=PDB[it.name];return s+(p&&p[c]?p[c]*it.qty:0);},0)})).filter(x=>x.t>0).sort((a,b)=>a.t-b.t);
   const el=document.getElementById("best-badge");
@@ -360,7 +453,7 @@ function badge(){
   else el.style.display="none";
 }
 
-/* MISSED */
+// ── MISSED ────────────────────────────────────────────────────────────────
 function renderMissed(){
   const W=wk(),now=S.items.map(i=>i.name);
   const all=[...new Set(Object.entries(S.purchases).filter(([k])=>k!==W&&k.startsWith("20")).flatMap(([,v])=>v.items||[]))];
@@ -370,25 +463,33 @@ function renderMissed(){
   else el.style.display="none";
 }
 
-/* RENDER LIST */
+// ── RENDER LIST ───────────────────────────────────────────────────────────
 function renderList(){
   const wrap=document.getElementById("item-list"),fin=document.getElementById("finalize");
   renderMissed();
   if(!S.items.length){
-    wrap.innerHTML='<div class="empty">הרשימה ריקה — הוסף פריטים או סרוק ברקוד 📷</div>';
+    wrap.innerHTML='<div class="empty"><span style="font-size:40px">🛒</span><span>הרשימה ריקה<br>הוסף פריטים או סרוק ברקוד 📷</span></div>';
     fin.style.display="none";return;
   }
   wrap.innerHTML=S.items.map(it=>{
     const p=PDB[it.name],best=p?fmt(Math.min(...Object.values(p))):null;
+    const imgHtml=it.img
+      ?`<img class="item-img" src="${it.img}" onerror="this.style.display='none'">`
+      :`<div class="item-img-ph">${CAT[it.name]||"🛍️"}</div>`;
+    const safeName=it.name.replace(/'/g,"\\'").replace(/"/g,"&quot;");
     return`<div class="item${it.done?" done":""}">
       <button class="chk" onclick="tog(${it.id})">${it.done?"✅":"⬜"}</button>
+      ${imgHtml}
       <div class="item-info">
-        <div class="item-name">${CAT[it.name]||""} ${it.name}</div>
-        <div class="item-meta">${best?`<span class="item-price">מ-${best}</span>`:""}</div>
+        <div class="item-name">${it.name}</div>
+        <div class="item-meta">
+          ${it.brand?`<span class="item-brand">${it.brand}</span>`:""}
+          ${best?`<span class="item-price">מ-${best}</span>`:""}
+        </div>
       </div>
       <div class="item-r">
         <span class="qty-tag">×${it.qty}</span>
-        ${p?`<button class="ico" onclick="openPm('${it.name.replace(/'/g,"\\'")}')">⚖️</button>`:""}
+        ${p?`<button class="ico" onclick="openPm('${safeName}')">⚖️</button>`:""}
         <button class="ico" onclick="del(${it.id})">🗑️</button>
       </div>
     </div>`;
@@ -400,10 +501,10 @@ function renderList(){
   }else fin.style.display="none";
 }
 
-/* RENDER COMPARE */
+// ── RENDER COMPARE ────────────────────────────────────────────────────────
 function renderCmp(){
   const el=document.getElementById("cmp-content");
-  if(!S.items.length){el.innerHTML='<div class="empty">הוסף פריטים לרשימה</div>';return;}
+  if(!S.items.length){el.innerHTML='<div class="empty"><span>💰</span><span>הוסף פריטים לרשימה</span></div>';return;}
   const totals=CHAINS.map(c=>({c,t:S.items.reduce((s,it)=>{const p=PDB[it.name];return s+(p&&p[c]?p[c]*it.qty:0);},0)})).filter(x=>x.t>0).sort((a,b)=>a.t-b.t);
   let h=`<div class="cmp-hdr">השוואה עבור ${S.items.length} פריטים</div><div class="chain-cards">`;
   totals.forEach((x,i)=>{h+=`<div class="ccard${i===0?" best":""}"><div class="cdot" style="background:${CC[x.c]}"></div><div class="cname">${x.c}</div><div class="ctotal">${fmt(x.t)}</div>${i===0?'<div class="best-tag">💰 זול!</div>':`<div class="cdiff">+${fmt(x.t-totals[0].t)}</div>`}</div>`;});
@@ -412,7 +513,7 @@ function renderCmp(){
   h+=`</div>`;el.innerHTML=h;
 }
 
-/* RENDER STATS */
+// ── RENDER STATS ──────────────────────────────────────────────────────────
 function renderStats(){
   const W=wk(),M=mk();
   document.getElementById("sw").textContent=fmt(S.purchases[W]?.total||0);
